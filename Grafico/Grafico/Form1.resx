@@ -64,20 +64,20 @@
   <data name="btnAbrir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVEhL7ZPZDcIwEERdAiVQCiXQAcIuADqCQvCRNBA6
-        ICXQAdhorNjxSmiXnwjlSfMRefY5h6NWloP3ZtdZ8+icec0TnD6hJieKxrm4TLDm4v1hgzofSspKfPr0
-        FqBrIYe4iZtA15JLuGTzdf6/NgjO3PO1KFYPH2lJXuy93ldlWUZoJ/JiPO+hKMpyO56hnSCLougn+UPS
-        ZX6C1Vcoa6iyJPHut1DWUGVu0veDroUa4CadQOhafj37aR6qlUWh1BvdcJ4FqTQN/QAAAABJRU5ErkJg
-        gg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADESURBVEhL7ZPbDcIwDEU7AiMwCiOwAEKNB4CNYA/SOGUB
+        2ICOwAaQIEdNGkvI5qdCPdL9qHJ90kfaLMwHRNj0F3j0Dl7TeGcOVNMTRMNUnMd3cELcr6guh5OKEp4+
+        vgXS1bBD0oRNSFeTSnQp5uv8f23gHdzTtSrW3D7SnLR4RbMtyroMpB1Ji96Cz4q62PZI2hG2qMruyf6Q
+        fFke7NozKUu4sibh7tekLOHK0sTvR7oabkCaeAJJV/Pr2Y/zpFqYFU3zBpKEnfWbKR5tAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="btnSalvar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVEhL7ZXBEcIwEAPdAePO8nBoj5JICankDGRExtFd
-        sPA7O6PPsZJ/IV38xe1ep1zsmeda5RR7oN4nz7aGI72oj3AR5x2+t670yKHwDs47fG/dLb1HuIDzKexv
-        +fUIyzifwv43+NkTySPBnCeSR4I5TySPBHOeSB4J5jyySMg9WSTkniwSck8WCbkni4Tck0VC7g1/rtsU
-        WzDnwR/OEhal2PrZwNyFQkovpx0XefSiWn4AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVEhL7ZXRDcIwEEOzAcpmCCjrMRKM0DmqolAiUwXf
+        lZj77pP8czw7fyXt/MXhWo75NN/zUIqc8/OGep88TKM70ov6CBdxXuF760qPfBWW4LzC99at6T3CBZw3
+        Yb/m1yMs47wJ+5/gZ4snR4I5iydHgjmLJ0eCOYsnR4I5iywSck8WCbkni4Tck0VC7skiIfdkkZB74c91
+        m8v8wJyl/uEsgluUMo3vDcztKKT0AhI4F1vpDJHcAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnPonto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -107,5 +107,8 @@
   </metadata>
   <metadata name="dlgSalvar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>339, 17</value>
+  </metadata>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>440, 17</value>
   </metadata>
 </root>

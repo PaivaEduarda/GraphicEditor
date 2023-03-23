@@ -32,20 +32,21 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPonto = new System.Windows.Forms.ToolStripButton();
             this.btnReta = new System.Windows.Forms.ToolStripButton();
             this.btnCirculo = new System.Windows.Forms.ToolStripButton();
             this.btnElipse = new System.Windows.Forms.ToolStripButton();
             this.btnRetangulo = new System.Windows.Forms.ToolStripButton();
             this.btnPolilinha = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCor = new System.Windows.Forms.ToolStripButton();
             this.btnSair = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.stMensagem = new System.Windows.Forms.StatusStrip();
             this.pbAreaDesenho = new System.Windows.Forms.PictureBox();
             this.dlgAbrir = new System.Windows.Forms.OpenFileDialog();
             this.dlgSalvar = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAreaDesenho)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +72,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 35);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // btnAbrir
             // 
@@ -82,7 +82,6 @@
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(23, 22);
             this.btnAbrir.Text = "toolStripButton1";
-            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // btnSalvar
             // 
@@ -93,6 +92,11 @@
             this.btnSalvar.Size = new System.Drawing.Size(23, 32);
             this.btnSalvar.Text = "toolStripButton2";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
+            // 
             // btnPonto
             // 
             this.btnPonto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -101,7 +105,6 @@
             this.btnPonto.Name = "btnPonto";
             this.btnPonto.Size = new System.Drawing.Size(23, 32);
             this.btnPonto.Text = "toolStripButton3";
-            this.btnPonto.Click += new System.EventHandler(this.btnPonto_Click);
             // 
             // btnReta
             // 
@@ -129,7 +132,6 @@
             this.btnElipse.Name = "btnElipse";
             this.btnElipse.Size = new System.Drawing.Size(23, 32);
             this.btnElipse.Text = "toolStripButton6";
-            this.btnElipse.Click += new System.EventHandler(this.btnElipse_Click);
             // 
             // btnRetangulo
             // 
@@ -149,6 +151,11 @@
             this.btnPolilinha.Size = new System.Drawing.Size(23, 32);
             this.btnPolilinha.Text = "toolStripButton8";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 35);
+            // 
             // btnCor
             // 
             this.btnCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -166,17 +173,6 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(23, 32);
             this.btnSair.Text = "toolStripButton10";
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 35);
             // 
             // stMensagem
             // 
@@ -196,6 +192,7 @@
             this.pbAreaDesenho.Size = new System.Drawing.Size(800, 397);
             this.pbAreaDesenho.TabIndex = 2;
             this.pbAreaDesenho.TabStop = false;
+            this.pbAreaDesenho.Paint += new System.Windows.Forms.PaintEventHandler(this.pbAreaDesenho_Paint);
             // 
             // dlgAbrir
             // 
@@ -239,5 +236,6 @@
         private PictureBox pbAreaDesenho;
         private OpenFileDialog dlgAbrir;
         private SaveFileDialog dlgSalvar;
+        private ColorDialog colorDialog1;
     }
 }
