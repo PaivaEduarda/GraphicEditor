@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Grafico
+namespace Grafico 
 {
-    class Ponto
+    class Ponto : ICon
     {
         private int x, y;
         private Color cor;
-
+        private ListaSimples<Ponto> figuras = new ListaSimples<Ponto>();
         public Ponto(int cX, int cY, Color qualCor)
         {
             x = cX;

@@ -165,9 +165,31 @@ namespace Grafico
                 this.anterior = null;
                 while(this.atual!=null)
                 {
-                    //terminar depois
+                    if(atual.Info.CompareTo(oMenor) < 0)
+                    {
+                        anteriorAoMenor = this.anterior;
+                        oMenor = this.atual;
+                    }
+                    this.anterior = this.atual;
+                    this.atual = this.atual.Prox;
                 }
+                if(anteriorAoMenor == null)
+                {
+                    primeiro = this.primeiro.Prox;
+                }
+                else
+                {
+                    anteriorAoMenor.Prox = oMenor.Prox;
+                }
+                this.quantosNos--;
+
+                listaOrdenada.InserirAposFim(oMenor);
             }
+            this.primeiro = listaOrdenada.primeiro;
+            this.ultimo = listaOrdenada.ultimo;
+            this.atual = listaOrdenada.atual;
+            this.anterior = listaOrdenada.anterior;
+            this.quantosNos = listaOrdenada.quantosNos;
         }
     }
 }
