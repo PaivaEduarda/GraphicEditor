@@ -30,7 +30,7 @@ namespace Grafico
             get => cor;
             set => cor = value;
         }
-        public virtual void desenhar(Color cor, Graphics g)
+        public virtual void Desenhar(Color cor, Graphics g)
         {
             Pen pen = new Pen(cor);
             g.DrawLine(pen, x, y, x, y);
