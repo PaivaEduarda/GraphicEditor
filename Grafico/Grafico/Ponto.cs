@@ -3,11 +3,12 @@ using System.Drawing;
 
 namespace Grafico 
 {
-    class Ponto : ICon
+    class Ponto : IComparable<Ponto>
     {
+
         private int x, y;
         private Color cor;
-        private ListaSimples<Ponto> figuras = new ListaSimples<Ponto>();
+        
         public Ponto(int cX, int cY, Color qualCor)
         {
             x = cX;
@@ -34,6 +35,13 @@ namespace Grafico
         {
             Pen pen = new Pen(cor);
             g.DrawLine(pen, x, y, x, y);
+        }
+        public int CompareTo (Ponto other)
+        {
+            int diferencaX = X - other.X;
+            if(diferencaX == 0)
+                return Y - other.Y;
+            return diferencaX;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Runtime.Intrinsics.X86;
 
 namespace Grafico
 {
-    public class ListaSimples<Dado> where Dado : IComparable<Dado>, ICriterioDeSeparacao
+    public class ListaSimples<Dado> where Dado : IComparable<Dado>
     {
         NoLista<Dado> primeiro, ultimo, atual, anterior;
         int quantosNos;
@@ -165,7 +165,7 @@ namespace Grafico
                 this.anterior = null;
                 while(this.atual!=null)
                 {
-                    if(atual.Info.CompareTo(oMenor) < 0)
+                    if(oMenor.Info.CompareTo( atual.Info ) > 0)
                     {
                         anteriorAoMenor = this.anterior;
                         oMenor = this.atual;
@@ -190,6 +190,18 @@ namespace Grafico
             this.atual = listaOrdenada.atual;
             this.anterior = listaOrdenada.anterior;
             this.quantosNos = listaOrdenada.quantosNos;
+        }
+        public void IniciarPercursoSequencial()
+        {
+            atual = primeiro;
+            while(PodePercorrer())
+            {
+                atual = atual.Prox;
+            }
+        }
+        public bool PodePercorrer() 
+        {
+            return atual != null; 
         }
     }
 }
