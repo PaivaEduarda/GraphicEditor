@@ -1,0 +1,11 @@
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.csproj.AssemblyReference.cache
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.csproj.SuggestedBindingRedirects.cache
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.frmGeometrico.resources
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.Properties.Resources.resources
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.csproj.GenerateResource.cache
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.csproj.CoreCompileInputs.cache
+C:\Users\u22125\Downloads\Gráfico\bin\Debug\Gráfico.exe.config
+C:\Users\u22125\Downloads\Gráfico\bin\Debug\Gráfico.exe
+C:\Users\u22125\Downloads\Gráfico\bin\Debug\Gráfico.pdb
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.exe
+C:\Users\u22125\Downloads\Gráfico\obj\Debug\Gráfico.pdb
