@@ -193,14 +193,18 @@ namespace Grafico
         public void IniciarPercursoSequencial()
         {
             atual = primeiro;
-            while(PodePercorrer())
-            {
-                atual = atual.Prox;
-            }
+            primeiroAcessoDoPercurso = true;
         }
         public bool PodePercorrer() 
         {
-            return atual != null; 
+            if (atual != null && !primeiroAcessoDoPercurso)
+            {
+                atual = atual.Prox;
+            }
+            else 
+                primeiroAcessoDoPercurso = false;
+                
+            return atual != null;
         }
     }
 }

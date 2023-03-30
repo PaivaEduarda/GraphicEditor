@@ -31,23 +31,28 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPonto = new System.Windows.Forms.ToolStripButton();
             this.btnReta = new System.Windows.Forms.ToolStripButton();
             this.btnCirculo = new System.Windows.Forms.ToolStripButton();
             this.btnElipse = new System.Windows.Forms.ToolStripButton();
             this.btnRetangulo = new System.Windows.Forms.ToolStripButton();
             this.btnPolilinha = new System.Windows.Forms.ToolStripButton();
-            this.btnCor = new System.Windows.Forms.ToolStripButton();
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
             this.stMensagem = new System.Windows.Forms.StatusStrip();
+            this.tl1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tlMensagem = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tl2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tlCoordenadas = new System.Windows.Forms.ToolStripStatusLabel();
             this.pbAreaDesenho = new System.Windows.Forms.PictureBox();
             this.dlgAbrir = new System.Windows.Forms.OpenFileDialog();
             this.dlgSalvar = new System.Windows.Forms.SaveFileDialog();
             this.dlgCor = new System.Windows.Forms.ColorDialog();
             this.toolStrip1.SuspendLayout();
+            this.stMensagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAreaDesenho)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +97,11 @@
             this.btnSalvar.Size = new System.Drawing.Size(23, 22);
             this.btnSalvar.Text = "toolStripButton2";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // btnPonto
             // 
             this.btnPonto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -100,6 +110,7 @@
             this.btnPonto.Name = "btnPonto";
             this.btnPonto.Size = new System.Drawing.Size(23, 22);
             this.btnPonto.Text = "toolStripButton3";
+            this.btnPonto.Click += new System.EventHandler(this.btnPonto_Click);
             // 
             // btnReta
             // 
@@ -146,6 +157,11 @@
             this.btnPolilinha.Size = new System.Drawing.Size(23, 22);
             this.btnPolilinha.Text = "toolStripButton8";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // btnCor
             // 
             this.btnCor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -155,6 +171,11 @@
             this.btnCor.Size = new System.Drawing.Size(23, 22);
             this.btnCor.Text = "toolStripButton9";
             this.btnCor.Click += new System.EventHandler(this.btnCor_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // btnSair
             // 
@@ -166,28 +187,44 @@
             this.btnSair.Text = "toolStripButton10";
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
             // stMensagem
             // 
+            this.stMensagem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tl1,
+            this.tlMensagem,
+            this.tl2,
+            this.tlCoordenadas});
             this.stMensagem.Location = new System.Drawing.Point(0, 353);
             this.stMensagem.Name = "stMensagem";
             this.stMensagem.Size = new System.Drawing.Size(706, 22);
             this.stMensagem.TabIndex = 1;
             this.stMensagem.Text = "statusStrip1";
+            // 
+            // tl1
+            // 
+            this.tl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tl1.Name = "tl1";
+            this.tl1.Size = new System.Drawing.Size(71, 17);
+            this.tl1.Text = "Mensagem:";
+            // 
+            // tlMensagem
+            // 
+            this.tlMensagem.Name = "tlMensagem";
+            this.tlMensagem.Size = new System.Drawing.Size(91, 17);
+            this.tlMensagem.Text = "sem mensagem";
+            // 
+            // tl2
+            // 
+            this.tl2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tl2.Name = "tl2";
+            this.tl2.Size = new System.Drawing.Size(81, 17);
+            this.tl2.Text = "Coordenadas:";
+            // 
+            // tlCoordenadas
+            // 
+            this.tlCoordenadas.Name = "tlCoordenadas";
+            this.tlCoordenadas.Size = new System.Drawing.Size(25, 17);
+            this.tlCoordenadas.Text = "x, y";
             // 
             // pbAreaDesenho
             // 
@@ -199,6 +236,9 @@
             this.pbAreaDesenho.Size = new System.Drawing.Size(706, 312);
             this.pbAreaDesenho.TabIndex = 2;
             this.pbAreaDesenho.TabStop = false;
+            this.pbAreaDesenho.Paint += new System.Windows.Forms.PaintEventHandler(this.pbAreaDesenho_Paint);
+            this.pbAreaDesenho.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbAreaDesenho_MouseClick);
+            this.pbAreaDesenho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbAreaDesenho_MouseMove);
             // 
             // dlgAbrir
             // 
@@ -216,6 +256,8 @@
             this.Text = "Desenho Geométrico";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.stMensagem.ResumeLayout(false);
+            this.stMensagem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAreaDesenho)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -243,6 +285,10 @@
         private System.Windows.Forms.OpenFileDialog dlgAbrir;
         private System.Windows.Forms.SaveFileDialog dlgSalvar;
         private System.Windows.Forms.ColorDialog dlgCor;
+        private System.Windows.Forms.ToolStripStatusLabel tl1;
+        private System.Windows.Forms.ToolStripStatusLabel tlMensagem;
+        private System.Windows.Forms.ToolStripStatusLabel tl2;
+        private System.Windows.Forms.ToolStripStatusLabel tlCoordenadas;
     }
 }
 

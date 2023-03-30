@@ -19,7 +19,19 @@ namespace Gráfico
         {
             InitializeComponent();
         }
+
+        bool esperaPonto = false;
         private ListaSimples<Ponto> figuras = new ListaSimples<Ponto>();
+        bool esperaInicioReta = false;
+        bool esperaFimReta = false;
+        Color corAtual = Color.Black;
+
+        private void limparEsperas()
+        {
+            esperaPonto = false;
+            esperaInicioReta = false;
+            esperaFimReta = false;
+        }
         private void pbAreaDesenho_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -47,9 +59,9 @@ namespace Gráfico
                     StreamReader arqFiguras = new StreamReader(dlgAbrir.FileName);
                     String linha = arqFiguras.ReadLine();
                     //Double xInfEsq = Convert.ToDouble(linha.Substring(0, 5).Trim());
-                    Double yInfEsq = Convert.ToDouble(linha.Substring(5, 5).Trim());
-                    Double xSupDir = Convert.ToDouble(linha.Substring(10, 5).Trim());
-                    Double ySupDir = Convert.ToDouble(linha.Substring(15, 5).Trim());
+                    //Double yInfEsq = Convert.ToDouble(linha.Substring(5, 5).Trim());
+                    //Double xSupDir = Convert.ToDouble(linha.Substring(10, 5).Trim());
+                    //Double ySupDir = Convert.ToDouble(linha.Substring(15, 5).Trim());
                     while ((linha = arqFiguras.ReadLine()) != null)
                     {
                         String tipo = linha.Substring(0, 5).Trim();
@@ -66,44 +78,29 @@ namespace Gráfico
                             case 'p': // figura é um ponto
                                 figuras.InserirAposFim(
                                 new NoLista<Ponto>(new Ponto(xBase, yBase, cor), null));
-
-                                Ponto p = new Ponto(xBase, yBase, cor);
-                                p.Desenhar(cor, pbAreaDesenho.CreateGraphics());
                                 break;
                             case 'l': // figura é uma reta
                                 int xFinal = Convert.ToInt32(linha.Substring(30, 5).Trim());
                                 int yFinal = Convert.ToInt32(linha.Substring(35, 5).Trim());
                                 figuras.InserirAposFim(new NoLista<Ponto>(
                                 new Reta(xBase, xFinal, yBase, yFinal, cor), null));
-
-                                Reta r = new Reta(xBase, xFinal, yBase, yFinal, cor);
-                                r.Desenhar(cor, pbAreaDesenho.CreateGraphics());
                                 break;
                             case 'c': // figura é um círculo
                                 int raio = Convert.ToInt32(linha.Substring(30, 5).Trim());
                                 figuras.InserirAposFim(new NoLista<Ponto>(
                                 new Circulo(raio, xBase, yBase, cor), null));
-
-                                Circulo c = new Circulo(raio, xBase, yBase, cor);
-                                c.Desenhar(cor, pbAreaDesenho.CreateGraphics());
                                 break;
                             case 'e': //figura é uma elipse
                                 int raioX = Convert.ToInt32(linha.Substring(30, 5).Trim());
                                 int raioY = Convert.ToInt32(linha.Substring(35, 5).Trim());
                                 figuras.InserirAposFim(new NoLista<Ponto>(
                                 new Elipse(raioX, raioY, xBase, yBase, cor), null));
-
-                                Elipse el = new Elipse(raioX, raioY, xBase, yBase, cor);
-                                el.Desenhar(cor, pbAreaDesenho.CreateGraphics());
                                 break;
                             case 'r': //figura é um retângulo
                                 int finalX = Convert.ToInt32(linha.Substring(30, 5).Trim());
                                 int finalY = Convert.ToInt32(linha.Substring(35, 5).Trim());
                                 figuras.InserirAposFim(new NoLista<Ponto>(
                                 new Retangulo(xBase, finalX, yBase, finalY, cor), null));
-
-                                Retangulo re = new Retangulo(xBase, finalX, yBase, finalY, cor);
-                                re.Desenhar(cor, pbAreaDesenho.CreateGraphics());
                                 break;
                         }
                     }
@@ -123,6 +120,30 @@ namespace Gráfico
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void pbAreaDesenho_MouseMove(object sender, MouseEventArgs e)
+        {
+            stMensagem.Items[3].Text = e.X + "," + e.Y;
+        }
+
+        private void btnPonto_Click(object sender, EventArgs e)
+        {
+            stMensagem.Items[1].Text = "clique no local do ponto desejado:";
+            limparEsperas();
+            esperaPonto = true;
+        }
+
+        private void pbAreaDesenho_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (esperaPonto)
+            {
+                Ponto novoPonto = new Ponto(e.X, e.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(novoPonto, null));
+                novoPonto.Desenhar(novoPonto.Cor, pbAreaDesenho.CreateGraphics());
+                esperaPonto = false;
+                stMensagem.Items[1].Text = "";
+            }
         }
     }
 }
