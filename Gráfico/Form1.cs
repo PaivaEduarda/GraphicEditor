@@ -145,5 +145,43 @@ namespace Gráfico
                 stMensagem.Items[1].Text = "";
             }
         }
+
+        private void btnReta_Click(object sender, EventArgs e)
+        {
+            stMensagem.Items[1].Text = "Clique no local do ponto inicial da reta:";
+            limparEsperas();
+            esperaInicioReta = true;
+        }
+
+        public void mousePressed(MouseEvent e)
+        {
+            if (esperaPonto)
+            {
+                Ponto pontoInicial = new Ponto(e.getX(), e.getY(), corAtual);
+                figuras.InsereAposFim(new ListaSimples.NoLista(pontoInicial, null));
+                pontoInicial.desenha(pontoInicial.getCor(), pnlDesenho.getGraphics());
+                esperaPonto = false;
+            }
+            else
+            if (esperaInicioReta)
+            {
+                p1.setCor(corAtual);
+                p1.setX(e.getX());
+                p1.setY(e.getY());
+                esperaInicioReta = false;
+                esperaFimReta = true;
+                statusBar1.setText("Mensagem: clique o ponto final da reta");
+            }
+            else
+                if (esperaFimReta)
+            {
+                esperaInicioReta = false;
+                esperaFimReta = false;
+                Reta novaLinha = new Reta(p1.X, p1.Y, e.X, e.Y, corAtual);
+                figuras.inserirAposFim(new NoLista<Ponto>(novaLinha, null));
+                novaLinha.desenhar(novaLinha.Cor, pbAreaDesenho.CreateGraphics());
+
+            }
+            }
+        }
     }
-}

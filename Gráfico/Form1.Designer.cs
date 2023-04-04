@@ -120,6 +120,7 @@
             this.btnReta.Name = "btnReta";
             this.btnReta.Size = new System.Drawing.Size(23, 22);
             this.btnReta.Text = "toolStripButton4";
+            this.btnReta.Click += new System.EventHandler(this.btnReta_Click);
             // 
             // btnCirculo
             // 
