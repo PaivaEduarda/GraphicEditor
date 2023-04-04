@@ -31,6 +31,21 @@ namespace Grafico
             get => cor;
             set => cor = value;
         }
+
+        public void setX(int x)
+        {
+            this.x = x;
+        }
+
+        public void setY(int y)
+        {
+            this.y = y; 
+        }
+
+        public void setCor(Color cor)
+        {
+            this.cor = cor;
+        }
         public virtual void Desenhar(Color cor, Graphics g)
         {
             Pen pen = new Pen(cor);

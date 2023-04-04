@@ -20,17 +20,32 @@ namespace Gráfico
             InitializeComponent();
         }
 
-        bool esperaPonto = false;
         private ListaSimples<Ponto> figuras = new ListaSimples<Ponto>();
+        
+        bool esperaPonto = false;
         bool esperaInicioReta = false;
         bool esperaFimReta = false;
+        bool esperaInicioDoRetangulo = false;
+        bool esperaFimDoRetangulo = false;
+        bool esperaInicioDoCirculo = false;
+        bool esperaFimDoCirculo = false;
+        bool esperaInicioDaElipse = false;
+        bool esperaFimDaElipse = false;
+
         Color corAtual = Color.Black;
+        private static Ponto p1 = new Ponto(0, 0, Color.Black); 
 
         private void limparEsperas()
         {
             esperaPonto = false;
             esperaInicioReta = false;
             esperaFimReta = false;
+            esperaFimDoRetangulo = false;
+            esperaInicioDoRetangulo = false;
+            esperaInicioDoCirculo = false;
+            esperaFimDoCirculo = false;
+            esperaInicioDaElipse = false;
+            esperaFimDaElipse = false;
         }
         private void pbAreaDesenho_Paint(object sender, PaintEventArgs e)
         {
@@ -48,6 +63,7 @@ namespace Gráfico
         private void btnCor_Click(object sender, EventArgs e)
         {
             dlgCor.ShowDialog();
+            corAtual = dlgCor.Color;
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -138,11 +154,87 @@ namespace Gráfico
         {
             if (esperaPonto)
             {
-                Ponto novoPonto = new Ponto(e.X, e.Y, corAtual);
-                figuras.InserirAposFim(new NoLista<Ponto>(novoPonto, null));
-                novoPonto.Desenhar(novoPonto.Cor, pbAreaDesenho.CreateGraphics());
+                Ponto pontoInicial = new Ponto(e.X, e.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(pontoInicial, null));
+                pontoInicial.Desenhar(pontoInicial.Cor, pbAreaDesenho.CreateGraphics());
                 esperaPonto = false;
-                stMensagem.Items[1].Text = "";
+                stMensagem.Items[1].Text = " ";
+            }
+            else
+            if (esperaInicioReta)
+            {
+                p1.setCor(corAtual);
+                p1.setX(e.X);
+                p1.setY(e.Y);
+                esperaInicioReta = false;
+                esperaFimReta = true;
+                stMensagem.Items[1].Text = "Clique o ponto final da reta";
+            }
+            else
+            if (esperaFimReta)
+            {
+                esperaFimReta = false;
+                Reta novaLinha = new Reta(p1.X, e.X, p1.Y, e.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(novaLinha, null));
+                novaLinha.Desenhar(novaLinha.Cor, pbAreaDesenho.CreateGraphics());
+                esperaInicioReta = true;
+            }
+            else
+            if (esperaInicioDoRetangulo)
+            {
+                p1.setCor(corAtual);
+                p1.setX(e.X);
+                p1.setY(e.Y);
+                esperaInicioDoRetangulo = false;
+                esperaFimDoRetangulo = true;
+                stMensagem.Items[1].Text = "Clique o ponto final do retangulo";
+            }
+            else
+            if (esperaFimDoRetangulo)
+            {
+                esperaFimDoRetangulo = false;
+                Retangulo novoRet = new Retangulo(p1.X, e.X, p1.Y, e.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(novoRet, null));
+                novoRet.Desenhar(novoRet.Cor, pbAreaDesenho.CreateGraphics());
+                esperaInicioDoRetangulo = true;
+            }
+            else
+            if (esperaInicioDoCirculo)
+            {
+                p1.setCor(corAtual);
+                p1.setX(e.X);
+                p1.setY(e.Y);
+                esperaInicioDoCirculo = false;
+                esperaFimDoCirculo = true;
+                stMensagem.Items[1].Text = "Clique o ponto final do circulo";
+            }
+            else
+            if (esperaFimDoCirculo)
+            {
+                esperaFimDoCirculo = false;
+                Circulo novoCir = new Circulo(p1.X - e.X, p1.X, p1.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(novoCir, null));
+                novoCir.Desenhar(novoCir.Cor, pbAreaDesenho.CreateGraphics());
+                esperaInicioDoCirculo = true;
+            }
+            else
+            if (esperaInicioDaElipse)
+            {
+                p1.setCor(corAtual);
+                p1.setX(e.X);
+                p1.setY(e.Y);
+                esperaInicioDaElipse = false;
+                esperaFimDaElipse = true;
+                stMensagem.Items[1].Text = "Clique o ponto final da elipse";
+            }
+            else
+            if (esperaFimDaElipse)
+            {
+                esperaFimDaElipse = false;
+                Elipse novoEli = new Elipse(p1.X - e.X, p1.Y - e.Y, p1.X, p1.Y, corAtual);
+                figuras.InserirAposFim(new NoLista<Ponto>(novoEli, null));
+                novoEli.Desenhar(novoEli.Cor, pbAreaDesenho.CreateGraphics());
+                esperaInicioDaElipse = true;
             }
         }
 
@@ -153,35 +245,25 @@ namespace Gráfico
             esperaInicioReta = true;
         }
 
-        public void mousePressed(MouseEvent e)
+        private void btnRetangulo_Click(object sender, EventArgs e)
         {
-            if (esperaPonto)
-            {
-                Ponto pontoInicial = new Ponto(e.getX(), e.getY(), corAtual);
-                figuras.InsereAposFim(new ListaSimples.NoLista(pontoInicial, null));
-                pontoInicial.desenha(pontoInicial.getCor(), pnlDesenho.getGraphics());
-                esperaPonto = false;
-            }
-            else
-            if (esperaInicioReta)
-            {
-                p1.setCor(corAtual);
-                p1.setX(e.getX());
-                p1.setY(e.getY());
-                esperaInicioReta = false;
-                esperaFimReta = true;
-                statusBar1.setText("Mensagem: clique o ponto final da reta");
-            }
-            else
-                if (esperaFimReta)
-            {
-                esperaInicioReta = false;
-                esperaFimReta = false;
-                Reta novaLinha = new Reta(p1.X, p1.Y, e.X, e.Y, corAtual);
-                figuras.inserirAposFim(new NoLista<Ponto>(novaLinha, null));
-                novaLinha.desenhar(novaLinha.Cor, pbAreaDesenho.CreateGraphics());
+            stMensagem.Items[1].Text = "Clique no local do ponto inicial do retangulo";
+            limparEsperas();
+            esperaInicioDoRetangulo = true;
+        }
 
-            }
-            }
+        private void btnCirculo_Click(object sender, EventArgs e)
+        {
+            stMensagem.Items[1].Text = "Clique no local do ponto inicial do circulo";
+            limparEsperas();
+            esperaInicioDoCirculo = true;
+        }
+
+        private void btnElipse_Click(object sender, EventArgs e)
+        {
+            stMensagem.Items[1].Text = "Clique no local do ponto inicial do circulo";
+            limparEsperas();
+            esperaInicioDaElipse = true;
         }
     }
+}

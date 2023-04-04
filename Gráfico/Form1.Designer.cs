@@ -130,6 +130,7 @@
             this.btnCirculo.Name = "btnCirculo";
             this.btnCirculo.Size = new System.Drawing.Size(23, 22);
             this.btnCirculo.Text = "toolStripButton5";
+            this.btnCirculo.Click += new System.EventHandler(this.btnCirculo_Click);
             // 
             // btnElipse
             // 
@@ -139,6 +140,7 @@
             this.btnElipse.Name = "btnElipse";
             this.btnElipse.Size = new System.Drawing.Size(23, 22);
             this.btnElipse.Text = "toolStripButton6";
+            this.btnElipse.Click += new System.EventHandler(this.btnElipse_Click);
             // 
             // btnRetangulo
             // 
@@ -148,6 +150,7 @@
             this.btnRetangulo.Name = "btnRetangulo";
             this.btnRetangulo.Size = new System.Drawing.Size(23, 22);
             this.btnRetangulo.Text = "toolStripButton7";
+            this.btnRetangulo.Click += new System.EventHandler(this.btnRetangulo_Click);
             // 
             // btnPolilinha
             // 
