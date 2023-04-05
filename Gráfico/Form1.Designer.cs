@@ -85,7 +85,7 @@
             this.btnAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(23, 22);
-            this.btnAbrir.Text = "toolStripButton1";
+            this.btnAbrir.Text = "Abrir";
             this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
             // 
             // btnSalvar
@@ -95,7 +95,8 @@
             this.btnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(23, 22);
-            this.btnSalvar.Text = "toolStripButton2";
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -109,7 +110,7 @@
             this.btnPonto.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPonto.Name = "btnPonto";
             this.btnPonto.Size = new System.Drawing.Size(23, 22);
-            this.btnPonto.Text = "toolStripButton3";
+            this.btnPonto.Text = "Ponto";
             this.btnPonto.Click += new System.EventHandler(this.btnPonto_Click);
             // 
             // btnReta
@@ -119,7 +120,7 @@
             this.btnReta.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReta.Name = "btnReta";
             this.btnReta.Size = new System.Drawing.Size(23, 22);
-            this.btnReta.Text = "toolStripButton4";
+            this.btnReta.Text = "Reta";
             this.btnReta.Click += new System.EventHandler(this.btnReta_Click);
             // 
             // btnCirculo
@@ -129,7 +130,7 @@
             this.btnCirculo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCirculo.Name = "btnCirculo";
             this.btnCirculo.Size = new System.Drawing.Size(23, 22);
-            this.btnCirculo.Text = "toolStripButton5";
+            this.btnCirculo.Text = "Círculo";
             this.btnCirculo.Click += new System.EventHandler(this.btnCirculo_Click);
             // 
             // btnElipse
@@ -139,7 +140,7 @@
             this.btnElipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnElipse.Name = "btnElipse";
             this.btnElipse.Size = new System.Drawing.Size(23, 22);
-            this.btnElipse.Text = "toolStripButton6";
+            this.btnElipse.Text = "Elipse";
             this.btnElipse.Click += new System.EventHandler(this.btnElipse_Click);
             // 
             // btnRetangulo
@@ -149,7 +150,7 @@
             this.btnRetangulo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRetangulo.Name = "btnRetangulo";
             this.btnRetangulo.Size = new System.Drawing.Size(23, 22);
-            this.btnRetangulo.Text = "toolStripButton7";
+            this.btnRetangulo.Text = "Retângulo";
             this.btnRetangulo.Click += new System.EventHandler(this.btnRetangulo_Click);
             // 
             // btnPolilinha
@@ -159,7 +160,7 @@
             this.btnPolilinha.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPolilinha.Name = "btnPolilinha";
             this.btnPolilinha.Size = new System.Drawing.Size(23, 22);
-            this.btnPolilinha.Text = "toolStripButton8";
+            this.btnPolilinha.Text = "Polilinhas";
             // 
             // toolStripSeparator1
             // 
@@ -173,7 +174,7 @@
             this.btnCor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCor.Name = "btnCor";
             this.btnCor.Size = new System.Drawing.Size(23, 22);
-            this.btnCor.Text = "toolStripButton9";
+            this.btnCor.Text = "Cores";
             this.btnCor.Click += new System.EventHandler(this.btnCor_Click);
             // 
             // toolStripSeparator3
@@ -188,7 +189,7 @@
             this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(23, 22);
-            this.btnSair.Text = "toolStripButton10";
+            this.btnSair.Text = "Sair";
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // stMensagem
@@ -247,6 +248,10 @@
             // dlgAbrir
             // 
             this.dlgAbrir.FileName = "C:\\Users\\u22125\\Documents\\";
+            // 
+            // dlgSalvar
+            // 
+            this.dlgSalvar.Filter = "Text Files | *.txt";
             // 
             // frmGeometrico
             // 

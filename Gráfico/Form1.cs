@@ -73,7 +73,7 @@ namespace Gráfico
                 try
                 {
                     StreamReader arqFiguras = new StreamReader(dlgAbrir.FileName);
-                    String linha = arqFiguras.ReadLine();
+                    String linha;
                     //Double xInfEsq = Convert.ToDouble(linha.Substring(0, 5).Trim());
                     //Double yInfEsq = Convert.ToDouble(linha.Substring(5, 5).Trim());
                     //Double xSupDir = Convert.ToDouble(linha.Substring(10, 5).Trim());
@@ -212,7 +212,11 @@ namespace Gráfico
             if (esperaFimDoCirculo)
             {
                 esperaFimDoCirculo = false;
-                Circulo novoCir = new Circulo(p1.X - e.X, p1.X, p1.Y, corAtual);
+                Circulo novoCir;
+                if (p1.X - e.X > 0)
+                    novoCir = new Circulo(p1.X - e.X, p1.X, p1.Y, corAtual);
+                else
+                    novoCir = new Circulo(e.X - p1.X, p1.X, p1.Y, corAtual);
                 figuras.InserirAposFim(new NoLista<Ponto>(novoCir, null));
                 novoCir.Desenhar(novoCir.Cor, pbAreaDesenho.CreateGraphics());
                 esperaInicioDoCirculo = true;
@@ -231,7 +235,16 @@ namespace Gráfico
             if (esperaFimDaElipse)
             {
                 esperaFimDaElipse = false;
-                Elipse novoEli = new Elipse(p1.X - e.X, p1.Y - e.Y, p1.X, p1.Y, corAtual);
+                int raioX, raioY;
+                if (p1.X - e.X > 0)
+                    raioX = p1.X - e.X;
+                else
+                    raioX = e.X - p1.X;
+                if (p1.Y - e.Y > 0)
+                    raioY = p1.Y - e.Y;
+                else
+                    raioY = e.Y - p1.Y;
+                Elipse novoEli = new Elipse(raioX, raioY, p1.X, p1.Y, corAtual);
                 figuras.InserirAposFim(new NoLista<Ponto>(novoEli, null));
                 novoEli.Desenhar(novoEli.Cor, pbAreaDesenho.CreateGraphics());
                 esperaInicioDaElipse = true;
@@ -264,6 +277,21 @@ namespace Gráfico
             stMensagem.Items[1].Text = "Clique no local do ponto inicial do circulo";
             limparEsperas();
             esperaInicioDaElipse = true;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if(dlgSalvar.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter salvar = new StreamWriter(dlgSalvar.FileName);
+                figuras.IniciarPercursoSequencial();
+                while(figuras.PodePercorrer())
+                {
+                    salvar.Flush();
+                    salvar.WriteLine(figuras.Atual.Info.ToString());
+                }
+                salvar.Close();
+            }
         }
     }
 }
