@@ -49,7 +49,7 @@ namespace Grafico
         public virtual void Desenhar(Color cor, Graphics g)
         {
             Pen pen = new Pen(cor);
-            g.DrawLine(pen, x, y, x, y);
+            g.DrawLine(pen, x, y, x+1, y);
         }
         public int CompareTo (Ponto other)
         {

@@ -1,0 +1,11 @@
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\bin\Debug\Gráfico.exe.config
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\bin\Debug\Gráfico.exe
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\bin\Debug\Gráfico.pdb
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Grafico.csproj.AssemblyReference.cache
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Grafico.csproj.SuggestedBindingRedirects.cache
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Gráfico.frmGeometrico.resources
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Gráfico.Properties.Resources.resources
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Grafico.csproj.GenerateResource.cache
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Grafico.csproj.CoreCompileInputs.cache
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Gráfico.exe
+C:\Users\u22127\Documents\GitHub\EditorGrafico\Gráfico\obj\Debug\Gráfico.pdb

@@ -6,7 +6,7 @@ namespace Grafico
     class Retangulo : Ponto
     {
         private Ponto pontoFinal;
-        public Retangulo(int x1,int x2, int y1, int y2, Color cor) : base (x1, y1, cor)
+        public Retangulo(int x1,int y1, int x2, int y2, Color cor) : base (x1, y1, cor)
         {
             pontoFinal = new Ponto(x2, y2, cor);
         }
@@ -15,23 +15,31 @@ namespace Grafico
         {
             int x;
             int y;
+            int largura = pontoFinal.X - base.X;
+            int altura = pontoFinal.Y - base.Y;
 
-            if(pontoFinal.X < base.X)
+            if (largura < 0)
             {
-                x = base.X - pontoFinal.X;
+                largura *= -1;
+                x = base.X- largura;
             }
             else
-                x = pontoFinal.X - base.X;
-
-            if(pontoFinal.Y < base.Y)
             {
-                y = base.Y - pontoFinal.Y;
+                x = base.X;
+            }
+
+            if (altura < 0)
+            {
+                altura *= -1;
+                y = base.Y - altura;
             }
             else
-                y = pontoFinal.Y - base.Y;
+            {
+                y = base.Y;
+            }
 
             Pen pen = new Pen(cor);
-            g.DrawRectangle(pen, x, y, pontoFinal.X, pontoFinal.Y);
+            g.DrawRectangle(pen, x, y, largura, altura);
         }
 
         public String transformaString(int valor, int quantasPosicoes)

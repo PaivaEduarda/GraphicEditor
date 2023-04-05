@@ -182,9 +182,9 @@ namespace Gráfico
             else
             if (esperaInicioDoRetangulo)
             {
-                p1.setCor(corAtual);
-                p1.setX(e.X);
-                p1.setY(e.Y);
+                p1.Cor = corAtual;
+                p1.X = e.X;
+                p1.Y = e.Y;
                 esperaInicioDoRetangulo = false;
                 esperaFimDoRetangulo = true;
                 stMensagem.Items[1].Text = "Clique o ponto final do retangulo";
@@ -193,7 +193,7 @@ namespace Gráfico
             if (esperaFimDoRetangulo)
             {
                 esperaFimDoRetangulo = false;
-                Retangulo novoRet = new Retangulo(p1.X, e.X, p1.Y, e.Y, corAtual);
+                Retangulo novoRet = new Retangulo(p1.X, p1.Y, e.X, e.Y, corAtual);
                 figuras.InserirAposFim(new NoLista<Ponto>(novoRet, null));
                 novoRet.Desenhar(novoRet.Cor, pbAreaDesenho.CreateGraphics());
                 esperaInicioDoRetangulo = true;
