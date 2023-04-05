@@ -8,6 +8,7 @@ namespace Grafico
 
         private int x, y;
         private Color cor;
+        private bool fazParteDePolilinha = false;
         
         public Ponto(int cX, int cY, Color qualCor)
         {
@@ -31,6 +32,7 @@ namespace Grafico
             get => cor;
             set => cor = value;
         }
+        public bool FazParteDePolilinha { get => fazParteDePolilinha; set => fazParteDePolilinha = value; }
 
         public void setX(int x)
         {
@@ -67,6 +69,7 @@ namespace Grafico
             return cadeia.Substring(0, quantasPosicoes); // corta, se necessário, para
                                                          // tamanho máximo
         }
+
         public String transformaString(String valor, int quantasPosicoes)
         {
             String cadeia = valor + "";
@@ -75,15 +78,15 @@ namespace Grafico
             return cadeia.Substring(0, quantasPosicoes); // corta, se necessário, para
                                                          // tamanho máximo
         }
+
         public override String ToString()
         {
-            return transformaString("p", 5) +
+            return transformaString(fazParteDePolilinha ? "o" : "p", 5) +
             transformaString(X, 5) +
             transformaString(Y, 5) +
             transformaString(Cor.R, 5) +
             transformaString(Cor.G, 5) +
             transformaString(Cor.B, 5);
-
         }
     }
 }

@@ -161,6 +161,7 @@
             this.btnPolilinha.Name = "btnPolilinha";
             this.btnPolilinha.Size = new System.Drawing.Size(23, 22);
             this.btnPolilinha.Text = "Polilinhas";
+            this.btnPolilinha.Click += new System.EventHandler(this.btnPolilinha_Click);
             // 
             // toolStripSeparator1
             // 

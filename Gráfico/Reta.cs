@@ -11,7 +11,7 @@ namespace Grafico
             pontoFinal = new Ponto(x2, y2, novaCor);
         }
 
-        internal Ponto PontoFinal 
+        internal Ponto PontoFinal
         {
             get => pontoFinal;
             set => pontoFinal = value;
@@ -48,7 +48,6 @@ namespace Grafico
             transformaString(Cor.B, 5) +
             transformaString(pontoFinal.X, 5) +
             transformaString(pontoFinal.Y, 5);
-
         }
     }
 }

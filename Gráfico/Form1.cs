@@ -31,9 +31,11 @@ namespace Gráfico
         bool esperaFimDoCirculo = false;
         bool esperaInicioDaElipse = false;
         bool esperaFimDaElipse = false;
+        bool esperaPolilinha = false;
 
         Color corAtual = Color.Black;
-        private static Ponto p1 = new Ponto(0, 0, Color.Black); 
+        private static Ponto p1 = new Ponto(0, 0, Color.Black);
+        private static Polilinha polilinha;
 
         private void limparEsperas()
         {
@@ -46,6 +48,7 @@ namespace Gráfico
             esperaFimDoCirculo = false;
             esperaInicioDaElipse = false;
             esperaFimDaElipse = false;
+            esperaPolilinha = false;
         }
         private void pbAreaDesenho_Paint(object sender, PaintEventArgs e)
         {
@@ -145,9 +148,18 @@ namespace Gráfico
 
         private void btnPonto_Click(object sender, EventArgs e)
         {
-            stMensagem.Items[1].Text = "clique no local do ponto desejado:";
-            limparEsperas();
-            esperaPonto = true;
+            if (!esperaPonto)
+            {
+                limparEsperas();
+                stMensagem.Items[1].Text = "clique no local do ponto desejado:";
+                esperaPonto = true;
+            }
+
+            else
+            {
+                stMensagem.Items[1].Text = "sem mensagem";
+                esperaPonto = false;
+            }
         }
 
         private void pbAreaDesenho_MouseClick(object sender, MouseEventArgs e)
@@ -157,8 +169,6 @@ namespace Gráfico
                 Ponto pontoInicial = new Ponto(e.X, e.Y, corAtual);
                 figuras.InserirAposFim(new NoLista<Ponto>(pontoInicial, null));
                 pontoInicial.Desenhar(pontoInicial.Cor, pbAreaDesenho.CreateGraphics());
-                esperaPonto = false;
-                stMensagem.Items[1].Text = " ";
             }
             else
             if (esperaInicioReta)
@@ -249,6 +259,19 @@ namespace Gráfico
                 novoEli.Desenhar(novoEli.Cor, pbAreaDesenho.CreateGraphics());
                 esperaInicioDaElipse = true;
             }
+            else
+            if (esperaPolilinha)
+            {
+                if (polilinha == null)
+                    polilinha = new Polilinha(e.X, e.Y, corAtual);
+                else
+                {
+                    Ponto novoPonto = new Ponto(e.X, e.Y, corAtual);
+                    novoPonto.FazParteDePolilinha = true;
+                    polilinha.ListaPontos.InserirAposFim(novoPonto);
+                    polilinha.Desenhar(corAtual, pbAreaDesenho.CreateGraphics());
+                }
+            }
         }
 
         private void btnReta_Click(object sender, EventArgs e)
@@ -292,6 +315,32 @@ namespace Gráfico
                 }
                 salvar.Close();
             }
+        }
+
+        private void btnPolilinha_Click(object sender, EventArgs e)
+        {
+            bool estadoAnterior = esperaPolilinha;
+            limparEsperas();
+
+            if (estadoAnterior)
+            {
+                stMensagem.Items[1].Text = "sem mensagem";
+
+                polilinha.ListaPontos.Atual = polilinha.ListaPontos.Primeiro;
+
+                if (polilinha.ListaPontos.Atual != null)
+                {
+                    figuras.InserirAposFim(polilinha.ListaPontos.Atual.Info);
+                    polilinha.ListaPontos.Atual = polilinha.ListaPontos.Atual.Prox;
+                }
+
+                polilinha = null;
+            }
+
+            else
+                stMensagem.Items[1].Text = "Clique no ponto inicial da polilinha";
+
+            esperaPolilinha = !esperaPolilinha;
         }
     }
 }

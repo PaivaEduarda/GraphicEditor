@@ -23,7 +23,7 @@ namespace Grafico
         }
         public NoLista<Dado> Primeiro { get => primeiro; }
         public NoLista<Dado> Ultimo { get => ultimo; }
-        public NoLista<Dado> Atual { get => atual; }
+        public NoLista<Dado> Atual { get => atual; set => atual = value; }
         public NoLista<Dado> Anterior { get => anterior; }
         
         public List<Dado>lista()
@@ -64,7 +64,6 @@ namespace Grafico
             else
                 ultimo.Prox = novoNo;
             ultimo = novoNo;
-            ultimo.Prox = novoNo;
             quantosNos++;
         }
         public bool ExisteDados(Dado procurado)
