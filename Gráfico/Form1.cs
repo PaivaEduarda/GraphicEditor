@@ -77,6 +77,8 @@ namespace Gráfico
                 {
                     StreamReader arqFiguras = new StreamReader(dlgAbrir.FileName);
                     String linha;
+                    bool primLinhaPoli = true;
+                    Ponto inicial, final;
                     //Double xInfEsq = Convert.ToDouble(linha.Substring(0, 5).Trim());
                     //Double yInfEsq = Convert.ToDouble(linha.Substring(5, 5).Trim());
                     //Double xSupDir = Convert.ToDouble(linha.Substring(10, 5).Trim());
@@ -119,7 +121,16 @@ namespace Gráfico
                                 int finalX = Convert.ToInt32(linha.Substring(30, 5).Trim());
                                 int finalY = Convert.ToInt32(linha.Substring(35, 5).Trim());
                                 figuras.InserirAposFim(new NoLista<Ponto>(
-                                new Retangulo(xBase, finalX, yBase, finalY, cor), null));
+                                new Retangulo(xBase, yBase, finalX, finalY, cor), null));
+                                break;
+                            case 'o': //figura é uma polilinha
+                                inicial = new Ponto(xBase, yBase, cor);
+                                if (polilinha == null)
+                                    polilinha = new Polilinha(xBase, yBase, cor);
+                                else
+                                    polilinha.ListaPontos.InserirAposFim(inicial);
+                                figuras.InserirAposFim(
+                                new NoLista<Ponto>(polilinha, null));
                                 break;
                         }
                     }
@@ -328,19 +339,36 @@ namespace Gráfico
 
                 polilinha.ListaPontos.Atual = polilinha.ListaPontos.Primeiro;
 
-                if (polilinha.ListaPontos.Atual != null)
+                while (polilinha.ListaPontos.Atual != null)
                 {
                     figuras.InserirAposFim(polilinha.ListaPontos.Atual.Info);
                     polilinha.ListaPontos.Atual = polilinha.ListaPontos.Atual.Prox;
                 }
-
                 polilinha = null;
             }
 
             else
                 stMensagem.Items[1].Text = "Clique no ponto inicial da polilinha";
 
-            esperaPolilinha = !esperaPolilinha;
+            esperaPolilinha = true;
+        }
+
+        private void pbAreaDesenho_DoubleClick(object sender, EventArgs e) //para dizer que o programa não espera mais polilinha
+        {
+            if(esperaPolilinha) 
+            {
+                stMensagem.Items[1].Text = "sem mensagem";
+
+                polilinha.ListaPontos.Atual = polilinha.ListaPontos.Primeiro;
+
+                while (polilinha.ListaPontos.Atual != null)
+                {
+                    figuras.InserirAposFim(polilinha.ListaPontos.Atual.Info);
+                    polilinha.ListaPontos.Atual = polilinha.ListaPontos.Atual.Prox;
+                }
+                polilinha = null;
+                esperaPolilinha = false;
+            }
         }
     }
 }

@@ -11,7 +11,9 @@ namespace Grafico
         public Polilinha(int cX, int cY, Color qualCor) : base(cX, cY, qualCor)
         {
             listaPontos = new ListaSimples<Ponto>();
-            listaPontos.InserirAposFim(new Ponto(cX, cY, qualCor));
+            Ponto p = new Ponto(cX, cY, qualCor);
+            p.FazParteDePolilinha = true;
+            listaPontos.InserirAposFim(p);
         }
 
         internal ListaSimples<Ponto> ListaPontos { get => listaPontos; set => listaPontos = value; }

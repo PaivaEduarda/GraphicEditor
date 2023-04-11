@@ -33,7 +33,7 @@ namespace Grafico
         {
             String cadeia = valor + "";
             while (cadeia.Length < quantasPosicoes)
-                cadeia = "0" + cadeia;
+                cadeia = " " + cadeia;
             return cadeia.Substring(0, quantasPosicoes); // corta, se necessário, para
                                                          // tamanho máximo
         }
