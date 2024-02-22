@@ -32,7 +32,7 @@
 
 # Authors
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114159027?v=4" width=115><br><sub>Eduarda Paiva</sub>](https://github.com/PaivaEduarda) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114162946?v=4" width=115><br><sub>Eloisa Paixão</sub>](https://github.com/biaacoutinho) | 
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114159027?v=4" width=115><br><sub>Eduarda Paiva</sub>](https://github.com/PaivaEduarda) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114162946?v=4" width=115><br><sub>Eloisa Paixão</sub>](https://github.com/eloisapaixao) | 
 | :---: | :---: |
 
 
